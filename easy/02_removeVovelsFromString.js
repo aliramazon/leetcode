@@ -18,7 +18,7 @@ s consists of only lowercase English letters.
 */
 
 const removeVovelsFromString = (string) => {
-   const vovels = "aeiou";
+   const vovels = ['a', 'e', 'i', 'o', 'u'];
    let result = "";
    
    for(let i = 0; i < string.length; i ++){
