@@ -37,11 +37,9 @@ const smallerNumbersThanCurrent = (nums) => {
 	const copyNumsSorted = [...nums].sort((a, b) => a - b);
 	const smallerNums = [];
 
-	console.log(copyNumsSorted);
 	for (let i = 0; i < copyNumsSorted.length; i++) {
 		const num = copyNumsSorted[i];
 		if (!hash[num] && hash[num] !== 0) {
-			console.log(hash[num]);
 			hash[num] = i;
 		}
 	}
