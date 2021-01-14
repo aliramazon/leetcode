@@ -22,13 +22,15 @@ The given address is a valid IPv4 address.
 
 const defangIPaddress = (address) => {
     return address.split(".").join("[.]");
-}
+};
 
 const defangIPaddressV2 = (address) => {
-    let defangedIPaddress = '';
+    let defangedIPaddress = "";
 
-    for(let i = 0; i < address.length; i ++){
-        address[i] === '.' ? defangedIPaddress += '[.]' : defangedIPaddress += address[i];
+    for (let i = 0; i < address.length; i++) {
+        address[i] === "."
+            ? (defangedIPaddress += "[.]")
+            : (defangedIPaddress += address[i]);
     }
     return defangIPaddress;
-}
+};

@@ -32,11 +32,11 @@ const runningSumOfArray = (array) => {
     let sum = 0;
     const result = [];
 
-    for(let ele of array) {
+    for (let ele of array) {
         sum += ele;
         result.push(sum);
     }
     return result;
-}
+};
 
-console.log(runningSumOfArray([1,2,3,4]));
+console.log(runningSumOfArray([1, 2, 3, 4]));

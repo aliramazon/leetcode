@@ -36,17 +36,17 @@ Constraints:
 */
 
 const numberOfSteps = (num) => {
-	let steps = 0;
+    let steps = 0;
 
-	while (num > 0) {
-		if (num % 2 === 1) {
-			num -= 1;
-		} else {
-			num /= 2;
-		}
-		steps += 1;
-	}
-	return steps;
+    while (num > 0) {
+        if (num % 2 === 1) {
+            num -= 1;
+        } else {
+            num /= 2;
+        }
+        steps += 1;
+    }
+    return steps;
 };
 
 console.log(numberOfSteps(123));

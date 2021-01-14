@@ -38,23 +38,29 @@ n == accounts[i].length
 
 const sumUpArray = (arr) => {
     let sum = 0;
-    for(let ele of arr) {
+    for (let ele of arr) {
         sum += ele;
     }
 
     return sum;
-}
+};
 
 const maximumWealth = (accounts) => {
     let richest = sumUpArray(accounts[0]);
 
-    for(let account of accounts) {
+    for (let account of accounts) {
         const totalWealth = sumUpArray(account);
-        if(richest < totalWealth){
+        if (richest < totalWealth) {
             richest = totalWealth;
         }
     }
     return richest;
-}
+};
 
-console.log(maximumWealth([[2,8,7],[7,1,3],[1,9,5]]))
+console.log(
+    maximumWealth([
+        [2, 8, 7],
+        [7, 1, 3],
+        [1, 9, 5]
+    ])
+);

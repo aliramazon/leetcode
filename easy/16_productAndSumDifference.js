@@ -26,15 +26,15 @@ Constraints:
 1 <= n <= 10^5
 */
 const subtractProductAndSum = (num) => {
-	let product = 1;
-	let sum = 0;
-	const stringNum = num.toString();
+    let product = 1;
+    let sum = 0;
+    const stringNum = num.toString();
 
-	for (i = 0; i < stringNum.length; i++) {
-		const digit = parseInt(stringNum[i]);
-		product *= digit;
-		sum += digit;
-	}
+    for (i = 0; i < stringNum.length; i++) {
+        const digit = parseInt(stringNum[i]);
+        product *= digit;
+        sum += digit;
+    }
 
-	return product - sum;
+    return product - sum;
 };

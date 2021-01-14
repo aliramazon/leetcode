@@ -31,25 +31,25 @@ At most 1000 calls will be made to addCar
 */
 
 class ParkingSystem {
-	constructor(big, medium, small) {
-		this.big = big;
-		this.medium = medium;
-		this.small = small;
-	}
+    constructor(big, medium, small) {
+        this.big = big;
+        this.medium = medium;
+        this.small = small;
+    }
 
-	static sizeDict = {
-		1: "big",
-		2: "medium",
-		3: "small"
-	};
+    static sizeDict = {
+        1: "big",
+        2: "medium",
+        3: "small"
+    };
 
-	addCar(carType) {
-		if (this[ParkingSystem.sizeDict[carType]] > 0) {
-			this[ParkingSystem.sizeDict[carType]]--;
-			return true;
-		}
-		return false;
-	}
+    addCar(carType) {
+        if (this[ParkingSystem.sizeDict[carType]] > 0) {
+            this[ParkingSystem.sizeDict[carType]]--;
+            return true;
+        }
+        return false;
+    }
 }
 
 let obj = new ParkingSystem(1, 2, 4);

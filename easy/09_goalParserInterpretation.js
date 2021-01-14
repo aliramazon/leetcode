@@ -30,25 +30,25 @@ command consists of "G", "()", and/or "(al)" in some order.
 */
 
 const goalParserInterpratation = (command) => {
-	const interpreter = {
-		G: "G",
-		"()": "o",
-		"(al)": "al"
-	};
+    const interpreter = {
+        G: "G",
+        "()": "o",
+        "(al)": "al"
+    };
 
-	let holder = "";
-	let parsedStr = "";
+    let holder = "";
+    let parsedStr = "";
 
-	for (let i = 0; i < command.length; i++) {
-		const char = command[i];
-		holder += char;
+    for (let i = 0; i < command.length; i++) {
+        const char = command[i];
+        holder += char;
 
-		if (interpreter[holder]) {
-			parsedStr += interpreter[holder];
-			holder = "";
-		}
-	}
-	return parsedStr;
+        if (interpreter[holder]) {
+            parsedStr += interpreter[holder];
+            holder = "";
+        }
+    }
+    return parsedStr;
 };
 
 console.log(goalParserInterpratation("G()()()()(al)"));

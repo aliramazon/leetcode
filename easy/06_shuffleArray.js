@@ -27,10 +27,10 @@ nums.length == 2n
 const shuffleArray = (nums, n) => {
     const shuffledNums = [];
 
-    for(let i = 0; i < n; i ++) {
+    for (let i = 0; i < n; i++) {
         shuffledNums.push(nums[i], nums[i + n]);
     }
     return shuffledNums;
-}
+};
 
-console.log(shuffleArray([2,5,1,3,4,7], 3));
+console.log(shuffleArray([2, 5, 1, 3, 4, 7], 3));

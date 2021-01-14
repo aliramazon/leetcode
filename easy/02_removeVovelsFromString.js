@@ -18,15 +18,15 @@ s consists of only lowercase English letters.
 */
 
 const removeVovelsFromString = (string) => {
-   const vovels = ['a', 'e', 'i', 'o', 'u'];
-   let result = "";
-   
-   for(let i = 0; i < string.length; i ++){
-       if(vovels.indexOf(string[i]) === -1){
-           result += string[i];
-       }
-   }
-   return result;
-}
+    const vovels = ["a", "e", "i", "o", "u"];
+    let result = "";
+
+    for (let i = 0; i < string.length; i++) {
+        if (vovels.indexOf(string[i]) === -1) {
+            result += string[i];
+        }
+    }
+    return result;
+};
 
 console.log(removeVovelsFromString("hello"));

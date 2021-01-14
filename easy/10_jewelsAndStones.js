@@ -24,21 +24,21 @@ All the characters of jewels are unique.
 */
 
 const numJewelsInStones = (jewels, stones) => {
-	const jewelsHash = {};
-	let sum = 0;
+    const jewelsHash = {};
+    let sum = 0;
 
-	for (let i = 0; i < jewels.length; i++) {
-		const jewel = jewels[i];
-		if (!jewelsHash[jewel]) {
-			jewelsHash[jewel] = 1;
-		}
-	}
+    for (let i = 0; i < jewels.length; i++) {
+        const jewel = jewels[i];
+        if (!jewelsHash[jewel]) {
+            jewelsHash[jewel] = 1;
+        }
+    }
 
-	for (let j = 0; j < stones.length; j++) {
-		let stone = stones[j];
-		if (jewelsHash[stone]) {
-			sum++;
-		}
-	}
-	return sum;
+    for (let j = 0; j < stones.length; j++) {
+        let stone = stones[j];
+        if (jewelsHash[stone]) {
+            sum++;
+        }
+    }
+    return sum;
 };

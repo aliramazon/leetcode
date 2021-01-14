@@ -30,10 +30,10 @@ encoded.length == n - 1
 */
 
 const decode = (encoded, first) => {
-	let decoded = [first];
+    let decoded = [first];
 
-	for (let i = 0; i < encoded.length; i++) {
-		decoded.push(encoded[i] ^ decoded[i]);
-	}
-	return decoded;
+    for (let i = 0; i < encoded.length; i++) {
+        decoded.push(encoded[i] ^ decoded[i]);
+    }
+    return decoded;
 };

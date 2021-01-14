@@ -37,17 +37,17 @@ const kidsWithCandies = (candies, extraCandies) => {
     let max = candies[0];
     const result = [];
 
-    for(let number of candies) {
-        if(max < number) {
+    for (let number of candies) {
+        if (max < number) {
             max = number;
         }
     }
 
-    for(let number of candies) {
+    for (let number of candies) {
         result.push(number + extraCandies >= max);
     }
 
     return result;
-}
+};
 
-console.log(kidsWithCandies([2,3,5,1,3], 3))
+console.log(kidsWithCandies([2, 3, 5, 1, 3], 3));

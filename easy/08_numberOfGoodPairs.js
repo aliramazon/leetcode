@@ -25,18 +25,18 @@ Constraints:
 */
 
 const numIdenticalPairs = (nums) => {
-	const hash = {};
-	let sum = 0;
+    const hash = {};
+    let sum = 0;
 
-	for (let num of nums) {
-		if (hash[num] || hash[num] === 0) {
-			hash[num] = hash[num] + 1;
-			sum = sum + hash[num];
-		} else {
-			hash[num] = 0;
-		}
-	}
-	return sum;
+    for (let num of nums) {
+        if (hash[num] || hash[num] === 0) {
+            hash[num] = hash[num] + 1;
+            sum = sum + hash[num];
+        } else {
+            hash[num] = 0;
+        }
+    }
+    return sum;
 };
 
 console.log(numIdenticalPairs([1, 2, 3, 1, 1, 3]));
