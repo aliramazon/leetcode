@@ -33,22 +33,20 @@ Constraints:
 */
 
 const smallerNumbersThanCurrent = (nums) => {
-	const hash = {};
-	const copyNumsSorted = [...nums].sort((a, b) => a - b);
-	const smallerNums = [];
+    const hash = {};
+    const copyNumsSorted = [...nums].sort((a, b) => a - b);
+    const smallerNums = [];
 
-	for (let i = 0; i < copyNumsSorted.length; i++) {
-		const num = copyNumsSorted[i];
-		if (!hash[num] && hash[num] !== 0) {
-			hash[num] = i;
-		}
-	}
+    for (let i = 0; i < copyNumsSorted.length; i++) {
+        const num = copyNumsSorted[i];
+        if (!hash[num] && hash[num] !== 0) {
+            hash[num] = i;
+        }
+    }
 
-	for (let num of nums) {
-		smallerNums.push(hash[num]);
-	}
+    for (let num of nums) {
+        smallerNums.push(hash[num]);
+    }
 
-	return smallerNums;
+    return smallerNums;
 };
-
-console.log(smallerNumbersThanCurrent([5, 0, 10, 0, 10, 6]));
