@@ -47,7 +47,7 @@ All values of indices are unique (i.e. indices is a permutation of the integers 
 const shuffleString = (string, indices) => {
     const hash = {};
     const length = string.length;
-    let shuffledString = "";
+    let shuffledArr = [];
 
     for (let i = 0; i < length; i++) {
         const idx = indices[i];
@@ -55,9 +55,9 @@ const shuffleString = (string, indices) => {
     }
 
     for (let j = 0; j < length; j++) {
-        shuffledString += hash[j];
+        shuffledArr.push(hash[j]);
     }
 
-    return shuffledString;
+    return shuffledArr.join("");
 };
 console.log(shuffleString("aaiougrt", [4, 0, 2, 6, 7, 3, 1, 5]));
