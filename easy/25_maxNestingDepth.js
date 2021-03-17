@@ -53,8 +53,8 @@ const findMaxDepth = (vpsString) => {
         let char = vpsString[i];
         if (char === "(") {
             count++;
-        } else if (char === ")") {
             if (maxDepth < count) maxDepth = count;
+        } else if (char === ")") {
             count--;
         }
     }
