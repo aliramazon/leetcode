@@ -52,7 +52,7 @@ const isValidParentheses = (parentheses) => {
 
         if (Object.values(dictionary).includes(item)) {
             stack.push(item);
-        } else {
+        } else if (Object.keys(dictionary).includes(item)) {
             let lastOpen = stack.pop();
             if (lastOpen !== dictionary[item]) {
                 return false;
@@ -62,10 +62,10 @@ const isValidParentheses = (parentheses) => {
     return stack.length === 0;
 };
 
-console.log(isValidParentheses("()"));
-console.log(isValidParentheses("()[]{}"));
+console.log(isValidParentheses("(1)"));
+console.log(isValidParentheses("()[45]{1244}"));
 console.log(isValidParentheses("(]"));
 console.log(isValidParentheses("()["));
 console.log(isValidParentheses("([])]"));
-console.log(isValidParentheses("{[]}"));
-console.log(isValidParentheses("}"));
+console.log(isValidParentheses("{[111]344}"));
+console.log(isValidParentheses("123}"));
