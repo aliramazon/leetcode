@@ -52,7 +52,7 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
 
 const romanToInt = function (s) {
-    let int = [];
+    let int = 0;
     const dict = {
         I: 1,
         V: 5,
@@ -75,14 +75,14 @@ const romanToInt = function (s) {
         let next = s[i + 1];
 
         if (dict[current + next]) {
-            int.push(dict[current + next]);
+            int += dict[current + next];
             i += 2;
         } else if (dict[current]) {
-            int.push(dict[current]);
+            int += dict[current];
             i++;
         }
     }
-    return int.reduce((acc, num) => acc + num, 0);
+    return int;
 };
 
 console.log(romanToInt("III"));
