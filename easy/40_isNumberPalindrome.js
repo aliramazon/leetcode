@@ -46,3 +46,25 @@ const isNumberPalindrome = (num) => {
 
     return num === revertedNumber || num === Math.floor(revertedNumber / 10);
 };
+
+const isNumberPalindromeRecursion = (num) => {
+    if (num < 0 || (num % 10 === 0 && num !== 0)) return false;
+
+    const revert = (revertedNumber) => {
+        if (revertedNumber > num || revertedNumber === num) {
+            return revertedNumber;
+        }
+        revertedNumber = revertedNumber * 10 + (num % 10);
+        num = Math.floor(num / 10);
+        return revert(revertedNumber);
+    };
+
+    let revertedHalfNumber = revert(0);
+
+    return (
+        num === revertedHalfNumber ||
+        num === Math.floor(revertedHalfNumber / 10)
+    );
+};
+
+console.log(isNumberPalindrome1(121211));
