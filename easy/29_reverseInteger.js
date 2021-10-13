@@ -31,7 +31,7 @@ Constraints:
 
 */
 
-const reverseString = (x) => {
+const reverseInteger = (x) => {
     let stringX = x.toString();
     let reversedChars = [];
 
@@ -48,7 +48,7 @@ const reverseString = (x) => {
     return 0;
 };
 
-console.log(reverseString(123));
-console.log(reverseString(-123));
-console.log(reverseString(120));
-console.log(reverseString(0));
+console.log(reverseInteger(123));
+console.log(reverseInteger(-123));
+console.log(reverseInteger(120));
+console.log(reverseInteger(0));
