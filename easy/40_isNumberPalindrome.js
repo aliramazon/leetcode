@@ -67,4 +67,4 @@ const isNumberPalindromeRecursion = (num) => {
     );
 };
 
-console.log(isNumberPalindrome1(121211));
+console.log(isNumberPalindromeRecursion(121211));
