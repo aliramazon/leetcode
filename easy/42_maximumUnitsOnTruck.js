@@ -39,8 +39,8 @@ const maximumUnits = (boxTypes, truckSize) => {
         } else if (remainingTruckSize < boxType[0]) {
             unitsLoaded += remainingTruckSize * boxType[1];
             remainingTruckSize = 0;
-            break;
         }
+        if (remainingTruckSize === 0) break;
     }
     return unitsLoaded;
 };
