@@ -3,20 +3,17 @@ const firstUniqChar = (str) => {
 
     for (let i = 0; i < str.length; i++) {
         let char = str[i];
-        if (!hash[char]) {
-            hash[char] = {
-                count: 1,
-                index: i
-            };
-        } else {
-            hash[char].count++;
+        if (!hash[char] && hash[char] !== 0) {
+            hash[char] = 1;
+        } else if (hash[char] || hash[char] === 0) {
+            hash[char]++;
         }
     }
 
     for (let j = 0; j < str.length; j++) {
         let char = str[j];
-        if (hash[char]["con"] === 1) {
-            return hash[char].index;
+        if (hash[char] === 1) {
+            return j;
         }
     }
     return -1;
