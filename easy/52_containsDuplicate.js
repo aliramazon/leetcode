@@ -22,7 +22,7 @@ const containsDuplicate = (nums) => {
 
     for (let num of nums) {
         if (hash[num]) return true;
-        hash[ele] = true;
+        hash[num] = true;
     }
 
     return false;
