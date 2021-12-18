@@ -38,20 +38,17 @@ Constraints:
 */
 
 const minStartValue = (nums) => {
-    let minStart = 1;
+    let minStartValue = 1;
     let sum = 1;
 
     for (let num of nums) {
-        if (sum + num < 1) {
-            let negative = sum + num;
-            let neededValue = 1 - negative;
-            minStart = neededValue + minStart;
-            sum = sum + num + neededValue;
-        } else {
-            sum += num;
+        let neededValue;
+        sum += num;
+        if (sum < 1) {
+            neededValue = 1 - sum;
+            minStartValue += neededValue;
+            sum += neededValue;
         }
     }
-    return minStart;
+    return minStartValue;
 };
-
-console.log(minStartValue([-3, 2, -3, 4, 2]));
