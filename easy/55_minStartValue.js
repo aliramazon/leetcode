@@ -38,17 +38,12 @@ Constraints:
 */
 
 const minStartValue = (nums) => {
-    let minStartValue = 1;
-    let sum = 1;
+    let minStartValue = 0;
+    let sum = 0;
 
     for (let num of nums) {
-        let neededValue;
         sum += num;
-        if (sum < 1) {
-            neededValue = 1 - sum;
-            minStartValue += neededValue;
-            sum += neededValue;
-        }
+        minStartValue = Math.min(minStartValue, sum);
     }
-    return minStartValue;
+    return 1 - minStartValue;
 };
