@@ -88,7 +88,7 @@ class MaxStack {
         let temp = [];
         let poppedMax = this.#maxStack.pop();
         while (this.top() !== poppedMax) {
-            temp.push(this.#pop());
+            temp.push(this.pop());
         }
         this.#data.pop();
 
