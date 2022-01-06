@@ -27,3 +27,7 @@ const arrangeCoins = (n) => {
     }
     return steps - 1;
 };
+
+const arrangeCoinsMath = (n) => {
+    return Math.floor(Math.sqrt(2 * n + 0.25) - 0.5);
+};
