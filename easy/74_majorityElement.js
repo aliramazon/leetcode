@@ -22,6 +22,7 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 
 const majorityElement = (nums) => {
     const numCounter = {};
+    let majorElement = nums[0];
 
     for (let num of nums) {
         if (!numCounter[num]) {
@@ -29,13 +30,10 @@ const majorityElement = (nums) => {
         } else {
             numCounter[num]++;
         }
-    }
-
-    let majorElement = nums[0];
-    for (let key in numCounter) {
-        if (numCounter[majorElement] < numCounter[key]) {
-            majorElement = key;
+        if (numCounter[majorElement] < numCounter[num]) {
+            majorElement = num;
         }
     }
+
     return majorElement;
 };
