@@ -63,4 +63,26 @@ const nextGreaterElement1BrutForce = (nums1, nums2) => {
     return result;
 };
 
-console.log(nextGreaterElement1BrutForce([4, 1, 2], [1, 3, 4, 2]));
+const nextGreaterElementOptimized = (nums1, nums2) => {
+    let map = new Map();
+    let stack = [];
+    let result = [];
+
+    for (let i = 0; i < nums2.length; i++) {
+        let num2 = nums2[i];
+        while (stack.length > 0 && num2 > stack[stack.length - 1]) {
+            map.set(stack.pop(), num2);
+        }
+        stack.push(num2);
+    }
+    console.log(map);
+
+    for (let j = 0; j < nums1.length; j++) {
+        let num1 = nums1[j];
+        let greaterElement = map.get(num1);
+        result.push(greaterElement ? greaterElement : -1);
+    }
+    return result;
+};
+
+console.log(nextGreaterElementOptimized([4, 1, 2], [1, 3, 4, 2]));
