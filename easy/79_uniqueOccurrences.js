@@ -38,3 +38,16 @@ const uniqueOccurrences = (nums) => {
     }
     return true;
 };
+
+const uniqueOccurrences1 = (nums) => {
+    const count = {};
+
+    for (let num of nums) {
+        let charCount = count[num];
+        count[num] = charCount ? charCount + 1 : 1;
+    }
+
+    let values = Object.values(count);
+
+    return values.length === new Set(values).size;
+};
