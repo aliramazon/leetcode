@@ -35,3 +35,20 @@ const kthMissingNumber = (arr, k) => {
     }
     return missing;
 };
+
+const kthMissingNumberLinear = (arr, k) => {
+    if (k < arr[0]) return k;
+    let length = arr.length;
+    if (length === arr[length - 1]) return arr[length - 1] + k;
+    k -= arr[0] - 1;
+    let missingNumbers;
+
+    for (let i = 0; i < length - 1; i++) {
+        missingNumbers = arr[i + 1] - arr[i] - 1;
+        if (missingNumbers >= k) {
+            return arr[i] + k;
+        }
+        k -= missingNumbers;
+    }
+    return arr[length - 1] + k;
+};
