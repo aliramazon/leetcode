@@ -31,16 +31,15 @@ const pascalTriangleRecursive = (numRows) => {
 
 const pascalTriangle = (numberRows) => {
     let rows = [[1]];
-    let nextRow = [1];
 
     while (rows.length < numberRows) {
+        let nextRow = [1];
         let lastRow = rows[rows.length - 1];
         for (let i = 0; i < lastRow.length - 1; i++) {
             nextRow.push(lastRow[i] + lastRow[i + 1]);
         }
         nextRow.push(1);
         rows.push(nextRow);
-        nextRow = [1];
     }
     return rows;
 };
