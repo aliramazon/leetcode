@@ -39,3 +39,16 @@ const isPerfectSquare = (num) => {
     }
     return false;
 };
+
+const isPerfectSquareNewton = (num) => {
+    if (num < 2) return true;
+    let guess = num / 2;
+    while (Math.floor(guess) * Math.floor(guess) > num) {
+        guess = (guess + num / guess) / 2;
+    }
+    return Math.floor(guess) * Math.floor(guess) === num;
+};
+
+console.log(isPerfectSquare(14));
+console.log(isPerfectSquare(49));
+console.log(isPerfectSquare(625));
