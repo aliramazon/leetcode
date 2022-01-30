@@ -29,22 +29,27 @@ Accepted
 742,291
 
 */
+const calculateNextNumber = (number) => {
+    let sum = 0;
+    while (number !== 0) {
+        sum += Math.pow(number % 10, 2);
+        number = Math.floor(number / 10);
+    }
+    return sum;
+};
 
 const isHappyNumber = (n) => {
     let set = new Set();
 
-    const getNextNumber = (n) => {
+    const calculate = (n) => {
         if (n === 1) return true;
 
-        let newNumber = [...n.toString()].reduce(
-            (acc, ele) => acc + Math.pow(parseInt(ele), 2),
-            0
-        );
+        let newNumber = calculateNextNumber(n);
         if (set.has(newNumber)) return false;
         set.add(newNumber);
-        return getNextNumber(newNumber);
+        return calculate(newNumber);
     };
-    return getNextNumber(n);
+    return calculate(n);
 };
 
-console.log(isHappyNumber(19));
+console.log(calculateNextNumber(7));
