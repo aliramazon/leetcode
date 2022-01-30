@@ -38,12 +38,11 @@ const calculateNextNumber = (number) => {
     return sum;
 };
 
-const isHappyNumber = (n) => {
-    let set = new Set();
+const isHappyNumberRecursive = (n) => {
+    const set = new Set();
 
     const calculate = (n) => {
         if (n === 1) return true;
-
         let newNumber = calculateNextNumber(n);
         if (set.has(newNumber)) return false;
         set.add(newNumber);
@@ -52,4 +51,15 @@ const isHappyNumber = (n) => {
     return calculate(n);
 };
 
-console.log(calculateNextNumber(7));
+const isHappyNumberIterative = (n) => {
+    const set = new Set();
+    while (!set.has(n)) {
+        set.add(n);
+        n = calculateNextNumber(n);
+    }
+    return n === 1;
+};
+
+console.log(isHappyNumberIterative(19));
+console.log(isHappyNumberIterative(7));
+console.log(isHappyNumberIterative(2));
