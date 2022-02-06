@@ -39,3 +39,18 @@ const isSymmetric = (root) => {
     }
     return true;
 };
+
+const isSymmetricRecursive = (root) => {
+    if (!root) return false;
+
+    const traverse = (subTree1, subTree2) => {
+        if (!subTree1 && !subTree2) return true;
+        if (!subTree1 || !subTree2) return false;
+        return (
+            subTree1.val === subTree2.val &&
+            traverse(subTree1.left, subTree2.right) &&
+            traverse(subTree1.right, subTree2.left)
+        );
+    };
+    return traverse(root.left, root.right);
+};
