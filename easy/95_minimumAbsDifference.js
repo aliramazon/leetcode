@@ -45,4 +45,42 @@ const minimumAbsDifference = (nums) => {
     return result;
 };
 
-console.log(minimumAbsDifference([40, 11, 26, 27, -20]));
+const getMinAndMax = (nums) => {
+    let min = nums[0],
+        max = nums[0];
+    for (let num of nums) {
+        if (min > num) min = num;
+        if (max < num) max = num;
+    }
+    return [min, max];
+};
+const minimumAbsDifference1 = (nums) => {
+    const [min, max] = getMinAndMax(nums);
+    let shift = min < 0 ? Math.abs(min) : 0;
+    let line = Array(max - min + 1).fill(0);
+    let result = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        line[nums[i] + shift] = 1;
+    }
+
+    let prev = min + shift;
+    let minDiff = max - min;
+
+    for (let i = prev + 1; i < line.length; i++) {
+        if (line[i] === 0) continue;
+        let currentDif = i - prev;
+        if (minDiff === currentDif) {
+            result.push([prev - shift, i - shift]);
+        } else if (minDiff > currentDif) {
+            result = [];
+            minDiff = currentDif;
+            result.push([prev - shift, i - shift]);
+        }
+        prev = i;
+    }
+    return result;
+};
+console.log(minimumAbsDifference1([40, 11, 26, 27, -20]));
+console.log(minimumAbsDifference1([4, 2, 1, 3]));
+console.log(minimumAbsDifference1([3, 8, -10, 23, 19, -4, -14, 27]));
