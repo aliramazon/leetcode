@@ -33,15 +33,15 @@ const minimumAbsDifference = (nums) => {
 
     for (let i = 0; i < nums.length - 1; i++) {
         let currentDif = nums[i + 1] - nums[i];
+        let [current, next] = [nums[i], [nums[i + 1]]];
         if (minDiff > currentDif) {
             minDiff = currentDif;
             result = [];
-            result.push([nums[i], nums[i + 1]]);
+            result.push([current, next]);
         } else if (minDiff === currentDif) {
-            result.push([nums[i], [nums[i + 1]]]);
+            result.push([current, next]);
         }
     }
-    console.log(nums);
     return result;
 };
 
