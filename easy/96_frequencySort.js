@@ -32,12 +32,11 @@ const frequencySort = (nums) => {
         }
     }
 
-    const sortFunction = (a, b) => {
+    nums.sort((a, b) => {
         const [count1, count2] = [hash[a], hash[b]];
         return count1 === count2 ? b - a : count1 - count2;
-    };
+    });
 
-    nums.sort(sortFunction);
     return nums;
 };
 
