@@ -17,11 +17,10 @@ const invertBinaryTree = (root) => {
 
     while (queue.length) {
         let dequeued = queue.shift();
-        if (dequeued) {
-            [dequeued.right, dequeued.left] = [dequeued.left, dequeued.right];
-        }
-        if (dequeued) queue.push(dequeued.left);
-        if (dequeued) queue.push(dequeued.right);
+        if (!dequeued) continue;
+        [dequeued.right, dequeued.left] = [dequeued.left, dequeued.right];
+        queue.push(dequeued.left);
+        queue.push(dequeued.right);
     }
     return root;
 };
