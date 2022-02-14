@@ -25,3 +25,20 @@ const invertBinaryTree = (root) => {
     }
     return root;
 };
+
+const invertBinaryTreeRecursive = (root) => {
+    if (!root) return null;
+    [root.left, root.right] = [root.right, root.left];
+    invertBinaryTreeRecursive(root.left);
+    invertBinaryTreeRecursive(root.right);
+    return root;
+};
+
+const invertBinaryTreeRecursive1 = (root) => {
+    if (!root) return null;
+    let right = invertBinaryTreeRecursive(root.left);
+    let left = invertBinaryTreeRecursive(root.right);
+    root.right = right;
+    root.left = left;
+    return root;
+};
