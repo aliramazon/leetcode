@@ -25,6 +25,7 @@ Output: 1
 Constraints:
 1 <= stones.length <= 30
 1 <= stones[i] <= 1000 */
+const BinaryMaxHeap = require('../helper-data-structures/01_BinaryMaxHeap');
 
 const lastStoneWeight = (stones) => {
     if (stones.length === 1) return stones[0];
