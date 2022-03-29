@@ -49,3 +49,26 @@ const intersect = (nums1, nums2) => {
     }
     return result;
 };
+
+const intersect1 = (nums1, nums2) => {
+    let i = 0;
+    let j = 0;
+    const result = [];
+
+    while (i < nums1.length && j < nums2.length) {
+        if (nums1[i] === nums2[j]) {
+            result.push(nums1[i]);
+            i++;
+            j++;
+        } else if (nums1[i] > nums2[j]) {
+            j++;
+        } else {
+            i++;
+        }
+    }
+    return result;
+};
+
+let nums1 = [1, 2, 3, 3, 4, 6, 6, 8, 9, 10, 10];
+let nums2 = [2, 3, 3, 8, 10, 10, 10];
+console.log(intersect1(nums1, nums2));
