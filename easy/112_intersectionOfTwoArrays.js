@@ -50,7 +50,7 @@ const intersect = (nums1, nums2) => {
     return result;
 };
 
-const intersect1 = (nums1, nums2) => {
+const intersectSorted = (nums1, nums2) => {
     let i = 0;
     let j = 0;
     const result = [];
@@ -71,4 +71,4 @@ const intersect1 = (nums1, nums2) => {
 
 let nums1 = [1, 2, 3, 3, 4, 6, 6, 8, 9, 10, 10];
 let nums2 = [2, 3, 3, 8, 10, 10, 10];
-console.log(intersect1(nums1, nums2));
+console.log(intersectSorted(nums1, nums2));
