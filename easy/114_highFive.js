@@ -24,27 +24,57 @@ items[i].length == 2
 0 <= scorei <= 100
 For each IDi, there will be at least five scores. */
 
-const highFive = (items) => {
-    const hash = {};
-
-    for (let item of items) {
-        if (hash[item[0]]) {
-            hash[item[0]].push(item[1]);
+const highFive = (grades) => {
+    grades.sort((a, b) => {
+        if (a[0] === b[0]) {
+            return b[1] - a[1];
+        } else if (a[0] > b[0]) {
+            return 1;
         } else {
-            hash[item[0]] = [item[1]];
+            return -1;
+        }
+    });
+
+    const hash = {};
+    let count = 0;
+    let i = 0;
+
+    while (i < grades.length) {
+        if (hash[grades[i][0]] && count >= 5) {
+            i++;
+            continue;
+        }
+
+        if (hash[grades[i][0]]) {
+            hash[grades[i][0]] += grades[i][1];
+        } else {
+            hash[grades[i][0]] = grades[i][1];
+            count = 0;
+        }
+        let lastId = grades[i][0];
+        count++;
+        i++;
+
+        if (count === 5) {
+            hash[lastId] = Math.floor(hash[lastId] / 5);
         }
     }
 
-    for (let key in hash) {
-        let newValue =
-            hash[key]
-                .sort((a, b) => b - a)
-                .slice(0, 5)
-                .reduce((acc, ele) => acc + ele) / 5;
-        hash[key] = Math.floor(newValue);
-    }
-
-    return Object.keys(hash)
-        .sort((a, b) => parseInt(a) - parseInt(b))
-        .map((id) => [parseInt(id), hash[id]]);
+    return Object.entries(hash);
 };
+
+console.log(
+    highFive([
+        [1, 91],
+        [1, 92],
+        [2, 93],
+        [2, 97],
+        [1, 60],
+        [2, 77],
+        [1, 65],
+        [1, 87],
+        [1, 100],
+        [2, 100],
+        [2, 76]
+    ])
+);
