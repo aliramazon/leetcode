@@ -21,22 +21,16 @@ s consists of only lowercase English letters. */
 
 const canPermutatePalindrome = (string) => {
     const count = {};
+    let countOdds = 0;
     for (let char of string) {
         if (!count[char]) {
             count[char] = 1;
         } else {
             count[char]--;
         }
-    }
-    let count1 = 0;
 
-    for (let key in count) {
-        if (count[key] === 1) {
-            count1++;
-            if (count1 > 1) {
-                return false;
-            }
-        }
+        count[char] === 1 ? countOdds++ : countOdds--;
     }
-    return true;
+
+    return countOdds <= 1;
 };
