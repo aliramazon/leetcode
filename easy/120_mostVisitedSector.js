@@ -29,43 +29,43 @@ rounds[i] != rounds[i + 1] for 0 <= i < m */
 
 // find most visited sector in circular track
 
-// const mostVisited = (n, rounds) => {
-//     const count = {};
-//     for (let i = 0; i < rounds.length - 1; i++) {
-//         let prev = i === 0 ? rounds[i] : rounds[i] + 1;
-//         let next = rounds[i + 1];
-//         if (prev <= next) {
-//             while (prev <= next) {
-//                 count[prev] ? count[prev]++ : (count[prev] = 1);
-//                 prev++;
-//             }
+const mostVisited = (n, rounds) => {
+    const count = {};
+    for (let i = 0; i < rounds.length - 1; i++) {
+        let prev = i === 0 ? rounds[i] : rounds[i] + 1;
+        let next = rounds[i + 1];
+        if (prev <= next) {
+            while (prev <= next) {
+                count[prev] ? count[prev]++ : (count[prev] = 1);
+                prev++;
+            }
 
-//             if (prev > next) continue;
-//         }
-//         j = prev;
-//         while (j <= n) {
-//             count[j] ? count[j]++ : (count[j] = 1);
-//             j++;
-//         }
-//         let k = 1;
-//         while (k <= next) {
-//             count[k] ? count[k]++ : (count[k] = 1);
-//             k++;
-//         }
-//     }
+            if (prev > next) continue;
+        }
+        j = prev;
+        while (j <= n) {
+            count[j] ? count[j]++ : (count[j] = 1);
+            j++;
+        }
+        let k = 1;
+        while (k <= next) {
+            count[k] ? count[k]++ : (count[k] = 1);
+            k++;
+        }
+    }
 
-//     let max = rounds[0];
+    let max = rounds[0];
 
-//     for (let key in count) {
-//         if (count[key] > count[max]) {
-//             max = key;
-//         }
-//     }
+    for (let key in count) {
+        if (count[key] > count[max]) {
+            max = key;
+        }
+    }
 
-//     return Object.keys(count)
-//         .filter((key) => count[key] === count[max])
-//         .sort((a, b) => a - b);
-// };
+    return Object.keys(count)
+        .filter((key) => count[key] === count[max])
+        .sort((a, b) => a - b);
+};
 
 console.log(mostVisited(7, [1, 3, 5, 7]));
 console.log(mostVisited(6, [4, 5]));
