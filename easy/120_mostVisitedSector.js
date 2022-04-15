@@ -67,6 +67,22 @@ const mostVisited = (n, rounds) => {
         .sort((a, b) => a - b);
 };
 
+const mostVisited1 = (n, rounds) => {
+    const first = rounds[0];
+    const last = rounds[rounds.length - 1];
+
+    const result = [];
+
+    if (first <= last) {
+        for (let i = first; i <= last; i++) result.push(i);
+    } else {
+        for (let i = 1; i <= last; i++) result.push(i);
+        for (let i = first; i <= n; i++) result.push(i);
+    }
+
+    return result;
+};
+
 console.log(mostVisited(7, [1, 3, 5, 7]));
 console.log(mostVisited(6, [4, 5]));
-console.log(mostVisited(4, [1, 3, 1, 2])); // 1,2,3,4,1,2
+console.log(mostVisited(4, [1, 3, 2])); // 1,2,3,4,1,2
