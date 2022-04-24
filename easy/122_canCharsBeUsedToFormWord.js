@@ -38,7 +38,8 @@ const countChars = (words, chars) => {
                 isGood = false;
                 break;
             }
-            copy[char]--;
+        }
+        copy[char]--;
 
         isGood && (length += word.length);
     }
