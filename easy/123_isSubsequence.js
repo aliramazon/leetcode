@@ -34,3 +34,20 @@ const isSubsequence = (src, target) => {
     }
     return i === src.length;
 };
+
+const isSubsequenceRecursive = (src, target) => {
+    if (src.length > target.length) return false;
+    if (src === target) return true;
+
+    const iterate = (i, j) => {
+        if (i === src.length) return true;
+        if (j === target.length) return false;
+
+        if (src[i] === target[j]) {
+            i++;
+        }
+        j++;
+        return iterate(i, j);
+    };
+    return iterate(0, 0);
+};
