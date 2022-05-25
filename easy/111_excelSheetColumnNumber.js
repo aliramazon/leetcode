@@ -44,3 +44,15 @@ const titleToNumber = (columnTitle) => {
     }
     return columnNumber;
 };
+
+const titleToNumber1 = (columnTitle) => {
+    let columnNumber = 0;
+    let exponent;
+
+    for (let i = 0; i < columnTitle.length; i++) {
+        exponent = columnTitle.length - i - 1;
+        columnNumber +=
+            ((columnTitle[i].charCodeAt() + 26) % 90) * 26 ** exponent;
+    }
+    return columnNumber;
+};
