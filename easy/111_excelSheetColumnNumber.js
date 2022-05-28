@@ -56,3 +56,8 @@ const titleToNumber1 = (columnTitle) => {
     }
     return columnNumber;
 };
+
+console.log(titleToNumber("AZZ"));
+console.log(titleToNumber("AFW"));
+console.log(titleToNumber("HC"));
+console.log(titleToNumber("ZF"));
