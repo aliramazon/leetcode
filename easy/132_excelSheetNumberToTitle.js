@@ -25,6 +25,20 @@ Output: "ZY"
  
 
 Constraints:
-1 <= columnNumber <= 231 - 1 */
+1 <= columnNumber <= 2^31 - 1 */
 
-const convertNumberToTitle = (number) => {};
+const convertToTitle = (number) => {
+    let columnTitle = [];
+    let columnNumber;
+    let exponent = 0;
+
+    while (number > 0) {
+        let power = 26 ** exponent;
+        let rest = Math.floor(number / power);
+        columnNumber = rest % 26 === 0 ? 26 : rest % 26;
+        columnTitle.unshift(String.fromCharCode(64 + columnNumber));
+        number = number - power * columnNumber;
+        exponent++;
+    }
+    return columnTitle.join("");
+};
