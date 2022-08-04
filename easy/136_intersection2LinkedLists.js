@@ -31,3 +31,42 @@ const getIntersectionNode1 = (headA, headB) => {
     }
     return null;
 };
+
+const getIntersectionNode2 = (headA, headB) => {
+    let lengthA = 0,
+        lengthB = 0,
+        currentA = headA,
+        currentB = headB;
+    while (currentA) {
+        lengthA++;
+        currentA = currentA.next;
+    }
+
+    while (currentB) {
+        lengthB++;
+        currentB = currentB.next;
+    }
+
+    let diff = lengthA > lengthB ? lengthA - lengthB : 0;
+    currentA = headA;
+    currentB = headB;
+
+    while (diff > 0) {
+        currentA = currentA.next;
+        diff--;
+    }
+    diff = lengthB > lengthA ? lengthB - lengthA : 0;
+    while (diff > 0) {
+        currentB = currentB.next;
+        diff--;
+    }
+
+    while (currentA && currentB) {
+        if (currentA === currentB) {
+            return currentA;
+        }
+        currentA = currentA.next;
+        currentB = currentB.next;
+    }
+    return null;
+};
