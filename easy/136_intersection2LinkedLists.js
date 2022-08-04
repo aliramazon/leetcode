@@ -22,7 +22,7 @@ const getIntersectionNode1 = (headA, headB) => {
     while (headA) {
         let pointerB = headB;
         while (pointerB) {
-            if (headA === headB) {
+            if (headA === pointerB) {
                 return headA;
             }
             pointerB = pointerB.next;
