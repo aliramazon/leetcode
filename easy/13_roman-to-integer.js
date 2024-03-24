@@ -27,15 +27,18 @@ Example 2:
 
 Input: s = "IV"
 Output: 4
+
 Example 3:
 
 Input: s = "IX"
 Output: 9
+
 Example 4:
 
 Input: s = "LVIII"
 Output: 58
 Explanation: L = 50, V= 5, III = 3.
+
 Example 5:
 
 Input: s = "MCMXCIV"
@@ -66,7 +69,7 @@ const romanToInt = function (s) {
         XL: 40,
         XC: 90,
         CD: 400,
-        CM: 900
+        CM: 900,
     };
 
     let i = 0;
