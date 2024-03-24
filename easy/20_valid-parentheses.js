@@ -44,7 +44,7 @@ const isValidParentheses = (parentheses) => {
     const dictionary = {
         "}": "{",
         "]": "[",
-        ")": "("
+        ")": "(",
     };
 
     for (let i = 0; i < parentheses.length; i++) {
@@ -69,3 +69,27 @@ console.log(isValidParentheses("()["));
 console.log(isValidParentheses("([])]"));
 console.log(isValidParentheses("{[111]344}"));
 console.log(isValidParentheses("123}"));
+
+// Valid Curly Braces
+const isValidCurlyBraces = (curlyBraces) => {
+    const stack = [];
+    for (let i = 0; i < curlyBraces.length; i++) {
+        const brace = curlyBraces[i];
+
+        if (brace === "{") {
+            stack.push(brace);
+        } else {
+            let lastOpen = stack.pop();
+            if (lastOpen === undefined) return false;
+        }
+    }
+    return stack.length === 0;
+};
+
+console.log(isValidCurlyBraces("{{}{{}"));
+console.log(isValidCurlyBraces("{{}"));
+console.log(isValidCurlyBraces("{{}}"));
+console.log(isValidCurlyBraces("{}"));
+console.log(isValidCurlyBraces("{"));
+console.log(isValidCurlyBraces("{{"));
+console.log(isValidCurlyBraces("}"));
